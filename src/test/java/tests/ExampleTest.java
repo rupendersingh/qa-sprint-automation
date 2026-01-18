@@ -18,9 +18,10 @@ public class ExampleTest extends BaseTest {
         page.open();
         page.clickBtn();
         Assert.assertEquals(page.MessageText(),"It's gone!", "Message not found");
+        Assert.assertEquals(driver.getTitle(), "The Internet");
         /*String link = driver.getCurrentUrl();
         //System.out.println(link);
-        Assert.assertEquals(page.getTitle(), "Example Domain");
+
         soft.assertEquals(page.getHeadingText(), "Example Domain");
 
         soft.assertTrue(driver.findElement(By.linkText("Learn more")).isDisplayed(), "String not present");

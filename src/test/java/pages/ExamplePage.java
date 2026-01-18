@@ -33,9 +33,9 @@ public class ExamplePage {
         return msg.getText();
     }
 
-    public String getTitle() {
+    /*public String getTitle() {
         return driver.getTitle();
-    }
+    }*/
 
     public String getHeadingText() {
         WebElement heading = driver.findElement(By.tagName("h1"));
