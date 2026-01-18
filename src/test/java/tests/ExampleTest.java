@@ -14,14 +14,17 @@ public class ExampleTest extends BaseTest {
     public void verifyExampleDotComContent() {
 
         ExamplePage page = new ExamplePage(driver);
-        SoftAssert soft = new SoftAssert();
+        //SoftAssert soft = new SoftAssert();
         page.open();
-        //String link = driver.getCurrentUrl();
+        page.clickBtn();
+        Assert.assertEquals(page.MessageText(),"It's gone!", "Message not found");
+        /*String link = driver.getCurrentUrl();
         //System.out.println(link);
         Assert.assertEquals(page.getTitle(), "Example Domain");
         soft.assertEquals(page.getHeadingText(), "Example Domain");
 
         soft.assertTrue(driver.findElement(By.linkText("Learn more")).isDisplayed(), "String not present");
         Assert.assertTrue(driver.getCurrentUrl().contains("example"), "url incorrect");
+         */
     }
 }
