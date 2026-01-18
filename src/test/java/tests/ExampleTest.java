@@ -1,8 +1,11 @@
 package tests;
 
 import base.BaseTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.ExamplePage;
 
 public class ExampleTest extends BaseTest {
@@ -11,10 +14,14 @@ public class ExampleTest extends BaseTest {
     public void verifyExampleDotComContent() {
 
         ExamplePage page = new ExamplePage(driver);
-
+        SoftAssert soft = new SoftAssert();
         page.open();
-
+        //String link = driver.getCurrentUrl();
+        //System.out.println(link);
         Assert.assertEquals(page.getTitle(), "Example Domain");
-        Assert.assertEquals(page.getHeadingText(), "Example Domain");
+        soft.assertEquals(page.getHeadingText(), "Example Domain");
+
+        soft.assertTrue(driver.findElement(By.linkText("Learn more")).isDisplayed(), "String not present");
+        Assert.assertTrue(driver.getCurrentUrl().contains("example"), "url incorrect");
     }
 }

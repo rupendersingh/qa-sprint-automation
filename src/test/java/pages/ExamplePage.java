@@ -24,4 +24,5 @@ public class ExamplePage {
         WebElement heading = driver.findElement(By.tagName("h1"));
         return heading.getText();
     }
+
 }
