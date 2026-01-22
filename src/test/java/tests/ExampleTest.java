@@ -1,16 +1,13 @@
 package tests;
 
 import base.BaseTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.ExamplePage;
 
 public class ExampleTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"regression"})
     public void verifyExampleDotComContent() {
 
         ExamplePage page = new ExamplePage(driver);

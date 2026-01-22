@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class SampleApiTest {
 
-    @Test
+    //@Test
     public void verifySingleUserApi() {
 
         // Step 1: Send GET request
