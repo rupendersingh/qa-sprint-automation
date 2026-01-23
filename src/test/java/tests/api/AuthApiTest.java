@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 public class AuthApiTest extends BaseApiTest {
-    @Test(priority = 1)
+    @Test
     public void getUserWithAuthToken() {
 
         Response response =

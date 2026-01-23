@@ -1,25 +1,31 @@
 package tests.api;
 
 import base.BaseApiTest;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ApiAssertions;
+
 import java.util.Map;
 
 public class GetApiTests extends BaseApiTest {
 
     @Test
     public void chEckStatusCode () {
-
         Response response = requestSpec
                 .when()
-                        .get("/users/2");
+                .get("/users/2")
+                .then()
+                .extract()
+                .response();
         // Step 2: Assert status code
-        Assert.assertEquals(response.getStatusCode(), 200,
-                "Status code is not 200");
-        int userId = response.jsonPath().getInt("data.id");
-        Assert.assertEquals(userId, 2, "User ID does not match");
+        ApiAssertions.assertStatusCode(response,200);
+        //Assert.assertEquals(response.getStatusCode(), 200,"Status code is not 200");
+        ApiAssertions.assertJsonFieldNotNull(response, "data.id");
+        ApiAssertions.assertResponseTimeUnder(response, 2000);
+        ApiAssertions.assertHeaderPresent(response,"Content-Type");
+
+        System.out.println("All util class assertions completed");
     }
 
     @Test
