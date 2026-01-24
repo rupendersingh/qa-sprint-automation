@@ -11,13 +11,13 @@ public class BaseTest {
 
     protected WebDriver driver;
 
-   // @BeforeMethod
+    @BeforeMethod
     public void setUp() {
         System.out.println(">>> BASETEST SETUP EXECUTED <<<");
         driver = new ChromeDriver();
     }
 
-    //@AfterMethod
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();

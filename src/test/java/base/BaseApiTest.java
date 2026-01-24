@@ -11,12 +11,13 @@ public class BaseApiTest {
 
     private static String authToken;
 
-    private static final String BASE_URI = "https://reqres.in";
+    //private static final String BASE_URI = "https://reqres.in";
+    private static final String BASE_URI = "https://automationexercise.com/api/";
     private static final String AUTH_PATH = "/api/login";
     private static final String API_KEY_HEADER = "x-api-key";
     private static final String API_KEY_VALUE = "reqres_8d469b8d719b48cc92180a3180eb2e0d";
 
-    @BeforeMethod
+    //@BeforeMethod
     public void setup() {
         requestSpec = getAuthenticatedSpec();
     }
@@ -65,9 +66,12 @@ public class BaseApiTest {
 
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
-                .addHeader(API_KEY_HEADER, API_KEY_VALUE)
-                .addHeader("Authorization", "Bearer " + getAuthToken())
+                //.addHeader(API_KEY_HEADER, API_KEY_VALUE)
+                //.addHeader("Authorization", "Bearer " + getAuthToken())
                 .addHeader("Content-Type", "application/json")
                 .build();
+    }
+    public RequestSpecification getRequestSpec() {
+        return requestSpec;
     }
 }

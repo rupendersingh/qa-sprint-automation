@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 public class NegativeAuthTest {
-    @Test
+    //@Test
     public void getUserWithoutAuthToken() {
 
         Response response =

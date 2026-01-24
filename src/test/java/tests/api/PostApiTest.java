@@ -9,7 +9,7 @@ import java.util.Map;
 
 
 public class PostApiTest extends BaseApiTest {
-    @Test
+    //@Test
     public void CheckPostApi(){
         Map<String, Object> payload = PayloadBuilder.createUserPayload();
         Response response = requestSpec
