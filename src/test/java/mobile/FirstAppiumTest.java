@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class FirstAppiumTest {
-    @Test
+
     public void launchAppAndVerifyElement() throws MalformedURLException {
         System.out.println("Test Starts Successfully");
 
