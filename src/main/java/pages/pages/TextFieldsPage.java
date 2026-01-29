@@ -1,5 +1,6 @@
 package pages.pages;
 
+import actions.MobileActions;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
@@ -8,10 +9,12 @@ import utils.WaitUtils;
 public class TextFieldsPage {
     private AndroidDriver driver;
     private WaitUtils wait;
+    private MobileActions actions;
 
     // Constructor injection (required)
     public TextFieldsPage(AndroidDriver driver) {
         this.driver = driver;
+        this.actions = new MobileActions(driver);
         this.wait = new WaitUtils(driver,10);
     }
     private By inputBox2 = AppiumBy.id("io.appium.android.apis:id/edit2");
@@ -24,11 +27,12 @@ public class TextFieldsPage {
     }
     public void inputPassText(){
         wait.waitForVisibility(inputPass);
-        driver.findElement(inputPass).sendKeys("Testing123");
+        actions.type(inputPass,"Testing123");
     }
 
     public String VerifyPasswordField(){
         //wait.waitForClickability(inputPass);
+        actions.getText(inputPass);
         String passText = driver.findElement(inputPass).getText();
         return passText;
     }
@@ -36,5 +40,9 @@ public class TextFieldsPage {
     public boolean textFieldHeaderText(){
         wait.waitForPresense(textFieldHeader);
        return driver.findElement(textFieldHeader).isDisplayed();
+    }
+
+    public void checkPassNotNull(){
+        actions.getText(inputPass);
     }
 }

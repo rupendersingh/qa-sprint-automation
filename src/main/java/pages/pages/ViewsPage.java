@@ -1,5 +1,6 @@
 package pages.pages;
 
+import actions.MobileActions;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
@@ -9,10 +10,12 @@ public class ViewsPage {
 
     private AndroidDriver driver;
     private WaitUtils wait;
+    private MobileActions actions;
 
     // Constructor injection (required)
     public ViewsPage(AndroidDriver driver) {
         this.driver = driver;
+        this.actions = new MobileActions(driver);
         this.wait = new WaitUtils(driver,10);
     }
     private By buttonsVp = AppiumBy.accessibilityId("Buttons");
@@ -22,7 +25,7 @@ public class ViewsPage {
     public void textFieldClick(){
         wait.waitForPresense(TextFieldsbtn);
         //driver.findElementByAndroidUIAutomator("new UiScrollable(new,UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"WebView\").instance(0))").click(); //scroll down to the element and click
-        driver.findElement(TextFieldsbtn).click();
+        actions.tap(TextFieldsbtn);
     }
 
     public boolean isViewsPageDisplayed(){
@@ -31,7 +34,7 @@ public class ViewsPage {
     }
     public void buttonsClick(){
         wait.waitForClickability(buttonsVp);
-        driver.findElement(buttonsVp).click();
+        actions.tap(buttonsVp);
     }
 
 }
