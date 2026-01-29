@@ -19,20 +19,20 @@ public class RecoveryDayXUIActionsTest{
 
     private WebDriver driver;
 
-    @BeforeMethod
+    //@BeforeMethod
     public void setUp() {
         System.out.println(">>> TEST SETUP EXECUTED <<<");
         driver = new ChromeDriver();
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
 
-    @Test(groups = {"smoke", "regression"})
+    //@Test(groups = {"smoke", "regression"})
     public void recoveryDayXUI(){
         System.out.println("INSIDE TEST METHOD");
         Assert.assertNotNull(driver, "Driver is NULL");

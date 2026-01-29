@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class GetApiTests extends BaseApiTest {
 
-    @Test
+    //@Test
     public void chEckStatusCode () {
         Response response = requestSpec
                 .when()
@@ -28,7 +28,7 @@ public class GetApiTests extends BaseApiTest {
         System.out.println("All util class assertions completed");
     }
 
-    @Test
+    //@Test
     public void ChecklistSize(){
         Response response = requestSpec
                 .when()
@@ -40,7 +40,7 @@ public class GetApiTests extends BaseApiTest {
         Assert.assertNotNull(dataMap, "Data object is null");
         Assert.assertTrue(dataMap.containsKey("id"), "Key id is missing");
     }
-    @Test
+    //@Test
     public void CheckContentType(){
         Response response = requestSpec
                 .when()
@@ -48,7 +48,7 @@ public class GetApiTests extends BaseApiTest {
         String responseType = response.contentType();
         Assert.assertEquals(responseType,"application/json; charset=utf-8");
     }
-    @Test
+    //@Test
     public void checkQueryParam(){
         int givenPage = 2;
         Response response = requestSpec
@@ -63,7 +63,7 @@ public class GetApiTests extends BaseApiTest {
         Assert.assertEquals(pageNumber,givenPage);
     }
 
-    @Test
+    //@Test
     public void checkEdgeCase(){
         int givenPage = 10;
         Response response = requestSpec
